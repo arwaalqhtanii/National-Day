@@ -1,7 +1,10 @@
 const distances = {
     "الرياض-الخرج": "50 كم",
+    "الخرج-الرياض": "50 كم",
     "الرياض-الدمام": "450 كم",
-    "الخرج-الدمام": "400 كم"
+    "الدمام-الرياض": "450 كم",
+    "الخرج-الدمام": "400 كم",
+    "الدمام-الخرج": "400 كم"
 };
 
 document.getElementById('searchForm').addEventListener('submit', function(event) {
@@ -10,8 +13,9 @@ document.getElementById('searchForm').addEventListener('submit', function(event)
     const fromCity = document.getElementById('fromCity').value;
     const toCity = document.getElementById('toCity').value;
 
-    const key = `${fromCity}-${toCity}`;
-    const distance = distances[key] || "المسافة غير متاحة.";
+    const key1 = `${fromCity}-${toCity}`;
+    const key2 = `${toCity}-${fromCity}`;
+    const distance = distances[key1] || distances[key2] || "المسافة غير متاحة.";
 
     document.getElementById('result').innerHTML = `المسافة بين ${fromCity} و ${toCity} هي ${distance}`;
     document.getElementById('result').style.display = 'block';
@@ -27,25 +31,24 @@ document.getElementById('getWeather').addEventListener('click', function() {
         alert("يرجى اختيار مدينة للطقس.");
     }
 });
+
 document.getElementById('searchHeritage').addEventListener('click', function() {
-const fromCity = document.getElementById('fromCity').value;
-const toCity = document.getElementById('toCity').value;
-if (fromCity && toCity) {
-if ((fromCity === "الرياض" && toCity === "الخرج") || (fromCity === "الخرج" && toCity === "الرياض")) {
-    window.location.href = "heritage.html"; // توجيه إلى صفحة المعالم بين الرياض والخرج
-} else if ((fromCity === "الرياض" && toCity === "الدمام") || (fromCity === "الدمام" && toCity === "الرياض")) {
-    window.location.href = "heritage_riyadh_dammam.html"; // توجيه إلى المعالم بين الرياض والدمام
-} else if ((fromCity === "الدمام" && toCity === "الخرج") || (fromCity === "الخرج" && toCity === "الدمام")) {
-    window.location.href = "heritage_dammam_kharj.html"; // توجيه إلى المعالم بين الدمام والخرج
-} else {
-    alert("المعالم السياحية غير متاحة لهذا الخيار.");
-}
-} else {
-alert("يرجى اختيار المدينتين للبحث عن المعالم.");
-}
+    const fromCity = document.getElementById('fromCity').value;
+    const toCity = document.getElementById('toCity').value;
+    if (fromCity && toCity) {
+        if ((fromCity === "الرياض" && toCity === "الخرج") || (fromCity === "الخرج" && toCity === "الرياض")) {
+            window.location.href = "heritage.html"; 
+        } else if ((fromCity === "الرياض" && toCity === "الدمام") || (fromCity === "الدمام" && toCity === "الرياض")) {
+            window.location.href = "heritage_riyadh_dammam.html";
+        } else if ((fromCity === "الدمام" && toCity === "الخرج") || (fromCity === "الخرج" && toCity === "الدمام")) {
+            window.location.href = "heritage_dammam_kharj.html"; 
+        } else {
+            alert("المعالم السياحية غير متاحة لهذا الخيار.");
+        }
+    } else {
+        alert("يرجى اختيار المدينتين للبحث عن المعالم.");
+    }
 });
-
-
 
 function showMap(fromCity, toCity) {
     const locations = {
