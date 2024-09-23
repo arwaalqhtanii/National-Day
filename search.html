@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="search.css">
+    <title>البحث عن رحلة</title>
+   
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <a class="navbar-brand" href="#">
+            <img src="https://i.pinimg.com/474x/62/6a/0f/626a0fc255f8ace41388a3cdec560577.jpg" alt="شعار اليوم الوطني" style="height: 60px;">
+        </a>
+    
+   
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+     
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                    <a class="nav-link wider-text " href="search.html">البحث عن رحلة</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link wider-text" href="index.html">الصفحة الرئيسية</a>
+                </li>
+             
+               
+            </ul>
+            <a class="btn btn-success d-lg-block" href="login.html">تسجيل الخروج</a>
+        </div>
+    </nav>
+    
+    
+    
+    
+  
+    
+
+    <div class="container mt-4">
+        <h2>استمتع برحلتك واستكشف أجمل المعالم السياحية </h2>
+        <p>اختر وجهتك وابدأ مغامرتك في اكتشاف المعالم السياحية الخلابة في المملكة العربية السعودية</p>
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="fromCity">انطلق من:</label>
+                <select class="form-control" id="fromCity" required>
+                    <option value="" disabled selected>اختر المدينة</option>
+                    <option value="الرياض">الرياض</option>
+                    <option value="الخرج">الخرج</option>
+                    <option value="الدمام">الدمام</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="toCity">وجهتك إلى:</label>
+                <select class="form-control" id="toCity" required>
+                    <option value="" disabled selected>اختر المدينة</option>
+                    <option value="الرياض">الرياض</option>
+                    <option value="الخرج">الخرج</option>
+                    <option value="الدمام">الدمام</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-brown btn-block" id="calculateDistance">
+                <i class="fas fa-route"></i> احسب المسافة الآن
+            </button>
+            <button type="button" class="btn btn-brown btn-block" id="getWeather">
+                <i class="fas fa-cloud-sun"></i> استعلام عن الطقس
+            </button>
+            <button type="button" class="btn btn-brown btn-block" id="searchHeritage">
+                <i class="fas fa-landmark"></i> استكشاف المعالم السياحية
+            </button>
+        </form>
+
+        <div class="map-container" id="map"></div>
+        <div id="result" class="alert alert-info" style="display:none;"></div>
+        <div id="weather" class="alert alert-info" style="display:none;"></div>
+    </div>
+
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <span class="text-muted">© 2024 اليوم الوطني. جميع الحقوق محفوظة.</span>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="ser.js"></script>
+</body>
+</html>
